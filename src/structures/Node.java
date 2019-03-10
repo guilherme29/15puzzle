@@ -1,3 +1,6 @@
+package structures;
+
+import constants.Const;
 import java.util.LinkedList;
 
 enum Move{
@@ -9,7 +12,7 @@ public class Node {
     private int zeroX, zeroY, depth = 0;
     private String path = "";
 
-    Node(int[][] table) {
+    public Node(int[][] table) {
         for(int i=0; i<Const.ROWS; i++){
             for(int j=0; j<Const.COLS; j++){
                 this.table[i][j] = table[i][j];
@@ -56,7 +59,7 @@ public class Node {
                 sonTable[y][x] = sonTable[y-1][x];
                 sonTable[y-1][x] = 0;
                 son.zeroY--;
-                son.path = "U" + this.path;
+                son.path = this.path + "U";
                 break;
             }
             case DOWN:{
@@ -64,7 +67,7 @@ public class Node {
                 sonTable[y][x] = sonTable[y+1][x];
                 sonTable[y+1][x] = 0;
                 son.zeroY++;
-                son.path = "D" + this.path;
+                son.path = this.path + "D";
                 break;
             }
             case LEFT:{
@@ -72,7 +75,7 @@ public class Node {
                 sonTable[y][x] = sonTable[y][x-1];
                 sonTable[y][x-1] = 0;
                 son.zeroX--;
-                son.path = "L" + this.path;
+                son.path = this.path + "L";
                 break;
             }
             case RIGHT:{
@@ -80,7 +83,7 @@ public class Node {
                 sonTable[y][x] = sonTable[y][x+1];
                 sonTable[y][x+1] = 0;
                 son.zeroX++;
-                son.path = "R" + this.path;
+                son.path = this.path + "R";
                 break;
             }
         }
@@ -136,7 +139,7 @@ public class Node {
         String string = "";
         for(int i=0; i<Const.ROWS; i++){
             for(int j=0; j<Const.COLS; j++){
-                string = string + this.table[i][j] + " ";
+                string += this.table[i][j] + " ";
             }
             string = string + "\n";
         }
@@ -145,20 +148,29 @@ public class Node {
         return string;
     }
 
-    /*
+    public String pathToString(Node root){ //assumes root is the actual root
+        Node node = root.makeCopy();
+        String string = root.toString() + "\n---------\n";
 
-14 6 12 9
-7 2 5 11
-8 0 13 15
-3 4 10 1
-
-14 6 12 9
-7 2 5 11
-8 4 13 15
-3 0 10 1
-
-
-    */
+        for(int i=0; i<path.length(); i++){
+            switch(path.charAt(i)){
+                case 'U':
+                    node = node.makeSon(Move.UP);
+                    break;
+                case 'D':
+                    node = node.makeSon(Move.DOWN);
+                    break;
+                case 'L':
+                    node = node.makeSon(Move.LEFT);
+                    break;
+                case 'R':
+                    node = node.makeSon(Move.RIGHT);
+                    break;
+            }
+            string += node.toString() + "\n---------\n";
+        }
+        return string;
+    }
 
 
 
