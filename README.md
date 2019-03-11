@@ -3,7 +3,10 @@ This is a remake of an assignment I had to do to my artifical intelligence class
 
 ## How to use:
 
-compile src with javac
+compile Puzzle with javac
+```Shell
+  javac Puzzle.java
+```
 
 run Puzzle, per example:
 ```Shell
