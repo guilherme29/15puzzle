@@ -5,9 +5,9 @@ This is a remake of an assignment I had to do to my artifical intelligence class
 
 compile src with javac
 
-run Algorithm, per example:
+run Puzzle, per example:
 ```Shell
-  java Algorithm dfs 15
+  java Puzzle dfs 15
 ```
 write your current matrix and your objective matrix (the one you want to get to), I have some examples in test_cases.txt if you're out of ideas.
 ```Shell
@@ -26,11 +26,11 @@ Remember that some algorithms can take a very long time depending in your input.
 
 ## Available algorithms you can run the program with:
 ```Shell
-  java Algorithm bfs
-  java Algorithm bfs D
-  java Algorithm dfs
-  java Algorithm dfs D
-  java Algorithm idfs D
+  java algorithm bfs
+  java algorithm bfs D
+  java algorithm dfs
+  java algorithm dfs D
+  java algorithm idfs D
 ```
 where D is the maximum Depth
 
@@ -40,9 +40,8 @@ As I am not worried about how good the program actually is (I've already done th
 - some of my functions use Strings in loops, and that's not optimal (java will always copy the entire string), so you may want to change that for something else.
 
 ## Some notes about the program:
-My unbounded DFS implementation doesn't really have a stack, has that would be pointless (the stack would continuosly grow and the tail would never even get checked). Basically when it expands a node it checks if any of them is the objective. 
-If not, it expands the first and completely discards the rest.
-
 If you want to monitor memory usage you can check it using htop on the shell while using the program.
 
 If you just want to count the Nodes, you can add some prints on the linkedlists to print their size while the program it's running.
+
+You can also use the shell to monitor the time of each algorithm.
