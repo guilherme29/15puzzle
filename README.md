@@ -42,7 +42,8 @@ where D is the maximum Depth (optional).
 ## How to improve this:
 As I am not worried about how good the program actually is (I've already done the Artificial Intelligence class) and I know some people may end up in this repository looking for help here is some guidance on how to improve what I've done.
 
-- some of my functions use Strings in loops, and that's not optimal (java will always copy the entire string), so you may want to change that for something else.
+- some of my functions build Strings in loops, and that's not optimal (java will always copy the entire string), so you may want to change that for something else. This is specially damaging to the unbounded dfs implementation.
+
 
 ## Some notes about the program:
 The dfs implementation uses a different function to expand each node just so I can ensure myself it doesn't get stuck in a corner.
