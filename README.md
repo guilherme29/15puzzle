@@ -5,6 +5,7 @@ This is a remake of an assignment I had to do to my artifical intelligence class
 
 compile Puzzle with javac
 ```Shell
+  cd src/
   javac Puzzle.java
 ```
 
