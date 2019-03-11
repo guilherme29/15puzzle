@@ -1,7 +1,6 @@
 import constants.Const;
 import structures.Node;
 import java.util.Scanner;
-
 import static algorithm.Algorithm.*;
 
 public class Puzzle {
@@ -18,8 +17,8 @@ public class Puzzle {
 
     public static void main(String[] args){
         String choice = args[0];
-
         System.out.println();
+
         int[][] table = scanTable();
         Node root = new Node(table);
 

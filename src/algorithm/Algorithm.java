@@ -43,7 +43,7 @@ public class Algorithm {
         stack.addFirst(root);
         while(!stack.isEmpty()){
             Node head = stack.removeFirst();
-            LinkedList<Node> sons = head.makeSons();
+            LinkedList<Node> sons = head.makeSonsRandom();
             //I'm gonna check the sons but then I will not add them to any stack
             //The reasoning for this is that the stack keeps on growing but in reality
             //I'm always just expanding the top item

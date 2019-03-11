@@ -45,6 +45,10 @@ As I am not worried about how good the program actually is (I've already done th
 - some of my functions use Strings in loops, and that's not optimal (java will always copy the entire string), so you may want to change that for something else.
 
 ## Some notes about the program:
+The dfs implementation uses a different function to expand each node just so I can ensure myself it doesn't get stuck in a corner.
+
+The program is setup to use matrices of any size, though I didn't bother testing. Head over to Const.java and change the values to your liking.
+
 If you want to monitor memory usage you can check it using htop on the shell while using the program.
 
 If you just want to count the Nodes, you can add some prints on the linkedlists to print their size while the program it's running.

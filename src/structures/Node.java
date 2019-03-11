@@ -118,6 +118,38 @@ public class Node {
         return l;
     }
 
+    public LinkedList<Node> makeSonsRandom(){
+        //same as the other one but the list is in a random order
+        //just ensuring that the unbounded dfs doesn't get stuck in a corner
+        LinkedList<Node> l = new LinkedList<>();
+        Node upSon, downSon, leftSon, rightSon;
+
+        try{
+            upSon = this.makeSon(Move.UP);
+            l.add(upSon);
+        } catch(IndexOutOfBoundsException e) { }
+
+        try{
+            downSon = this.makeSon(Move.DOWN);
+            int k = (int)(Math.random() * (l.size() + 1));
+            l.add(k, downSon);
+        } catch(IndexOutOfBoundsException e) { }
+
+        try{
+            leftSon = this.makeSon(Move.LEFT);
+            int k = (int)(Math.random() * (l.size() + 1));
+            l.add(k,leftSon);
+        } catch(IndexOutOfBoundsException e) { }
+
+        try{
+            rightSon = this.makeSon(Move.RIGHT);
+            int k = (int)(Math.random() * (l.size() + 1));
+            l.add(k,rightSon);
+        } catch(IndexOutOfBoundsException e) { }
+
+        return l;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Node) {
