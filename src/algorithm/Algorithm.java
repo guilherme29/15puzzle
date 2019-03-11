@@ -72,12 +72,21 @@ public class Algorithm {
         return null;
     }
 
-    public static Node idfs(Node root, Node objective, int maxDepth){
+    public static Node idfs(Node root, Node objective){
         Node result = null;
-        for(int i=1; i < maxDepth && result == null; i++){
+        for(int i=1; result == null; i++){
             result = limitedDfs(root, objective, i);
         }
         return result;
     }
+
+    public static Node limitedIdfs(Node root, Node objective, int maxDepth){
+        Node result = null;
+        for(int i=1; i <= maxDepth && result == null; i++){
+            result = limitedDfs(root, objective, i);
+        }
+        return result;
+    }
+
 
 }

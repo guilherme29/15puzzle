@@ -69,12 +69,11 @@ public class Puzzle {
                 Node end;
                 try {
                     int maxDepth = Integer.parseInt(args[1]); //can throw exception if user does not give the depth
-                    end = idfs(root, objective, maxDepth);
+                    end = limitedIdfs(root, objective, maxDepth);
 
                 }
                 catch (ArrayIndexOutOfBoundsException e){
-                    System.out.println("error - no depth provided.");
-                    return;
+                    end = idfs(root, objective);
                 }
 
                 if(end == null){

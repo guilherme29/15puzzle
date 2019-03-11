@@ -30,13 +30,14 @@ Remember that some algorithms can take a very long time depending in your input.
 
 ## Available algorithms you can run the program with:
 ```Shell
-  java algorithm bfs
-  java algorithm bfs D
-  java algorithm dfs
-  java algorithm dfs D
-  java algorithm idfs D
+  java Puzzle bfs
+  java Puzzle bfs D
+  java Puzzle dfs
+  java Puzzle dfs D
+  java Puzzle idfs
+  java Puzzle idfs D
 ```
-where D is the maximum Depth
+where D is the maximum Depth (optional).
 
 ## How to improve this:
 As I am not worried about how good the program actually is (I've already done the Artificial Intelligence class) and I know some people may end up in this repository looking for help here is some guidance on how to improve what I've done.
