@@ -38,7 +38,7 @@ public class Node {
         return path;
     }
 
-    private int[][] getTable(){ return table; }
+    int[][] getTable(){ return table; }
 
     private Node makeCopy(){
         Node copy = new Node(this.getTable());
@@ -47,7 +47,7 @@ public class Node {
         return copy;
     }
 
-    private Node makeSon(Move move){
+    private Node makeSon(Move move) throws IndexOutOfBoundsException {
         Node son = this.makeCopy();
         int[][] sonTable = son.getTable();
         int x = son.getZeroX();
@@ -175,8 +175,7 @@ public class Node {
             }
             string = string + "\n";
         }
-        string = string + "PATH: " + this.path + "\n";
-        string = string + "DEPTH: " + this.depth;
+        string = string + "PATH: " + this.getDepth() + "\n" + "DEPTH: " + this.getDepth();
         return string;
     }
 
@@ -203,7 +202,4 @@ public class Node {
         }
         return string;
     }
-
-
-
 }
