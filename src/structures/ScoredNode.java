@@ -41,15 +41,23 @@ abstract class ScoredNode extends Node {
     @Override
     public String toString() {
         int[][] table = this.getTable();
-        String string = "";
+        StringBuilder string = new StringBuilder();
         for(int i=0; i<Const.ROWS; i++){
             for(int j=0; j<Const.COLS; j++){
-                string += table[i][j] + " ";
+                string.append(table[i][j])
+                        .append(" ");
             }
-            string = string + "\n";
+            string.append("\n");
         }
-        string = string + "PATH: " + this.getDepth() + "\n" + "DEPTH: " + this.getDepth();
-        return string;
+        string.append("PATH: ")
+                .append(this.getDepth())
+                .append("\n")
+                .append("DEPTH: ")
+                .append(this.getDepth())
+                .append("\n")
+                .append("SCORE: ")
+                .append(this.getScore());
+        return string.toString();
     }
 
 

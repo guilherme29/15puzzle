@@ -65,7 +65,7 @@ public class Puzzle {
             }
             case "idfs": {
                 try {
-                    int maxDepth = Integer.parseInt(args[1]); //can throw exception if user does not give the depth
+                    int maxDepth = Integer.parseInt(args[1]); //will throw exception if user does not give the depth
                     end = limitedIdfs(root, objective, maxDepth);
 
                 }

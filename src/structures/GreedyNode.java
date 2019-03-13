@@ -22,9 +22,4 @@ public class GreedyNode extends ScoredNode implements Comparable<GreedyNode>{
         }
     }
 
-    @Override
-    public String toString() {
-        System.out.println("allalalalalallalal");
-        return super.toString();
-    }
 }

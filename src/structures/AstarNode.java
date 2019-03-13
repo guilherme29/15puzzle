@@ -22,8 +22,4 @@ public class AstarNode extends ScoredNode implements Comparable<AstarNode>{
         }
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }
