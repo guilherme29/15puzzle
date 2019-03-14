@@ -1,7 +1,9 @@
 package algorithm;
 
+import structures.AstarNode;
 import structures.Node;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 public class Algorithm {
 
@@ -87,6 +89,5 @@ public class Algorithm {
         }
         return result;
     }
-
 
 }

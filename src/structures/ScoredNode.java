@@ -50,7 +50,7 @@ abstract class ScoredNode extends Node {
             string.append("\n");
         }
         string.append("PATH: ")
-                .append(this.getDepth())
+                .append(this.getPath())
                 .append("\n")
                 .append("DEPTH: ")
                 .append(this.getDepth())
@@ -59,6 +59,5 @@ abstract class ScoredNode extends Node {
                 .append(this.getScore());
         return string.toString();
     }
-
 
 }

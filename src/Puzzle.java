@@ -40,7 +40,7 @@ public class Puzzle {
                 }
 
                 if(end == null){
-                    System.out.println("error - solution not found.");
+                    System.out.println("solution not found.");
                 }
                 else{ System.out.println(end.pathToString(root)); }
 
@@ -57,7 +57,7 @@ public class Puzzle {
                 }
 
                 if(end == null){
-                    System.out.println("error - solution not found.");
+                    System.out.println("solution not found.");
                 }
                 else{ System.out.println(end.pathToString(root)); }
 
@@ -74,7 +74,7 @@ public class Puzzle {
                 }
 
                 if(end == null){
-                    System.out.println("error - solution not found.");
+                    System.out.println("solution not found.");
                 }
                 else{ System.out.println(end.pathToString(root)); }
 

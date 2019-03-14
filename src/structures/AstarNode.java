@@ -8,7 +8,7 @@ public class AstarNode extends ScoredNode implements Comparable<AstarNode>{
         this.setScore(s);
     }
 
-    private static int score(int[][] table, int[][] objective, int depth) {
+    static int score(int[][] table, int[][] objective, int depth) {
         return scoringFunction(table, objective) + depth;
     }
 
@@ -21,5 +21,21 @@ public class AstarNode extends ScoredNode implements Comparable<AstarNode>{
             else return 1;
         }
     }
+
+    /*
+    @Override
+    Node makeSon(Move move) throws IndexOutOfBoundsException {
+        AstarNode son = (AstarNode) super.makeSon(move);
+        int[][] thisTable = this.getTable();
+        int zeroX = this.getZeroX();
+        int zeroY = this.getZeroY();
+
+
+
+
+        return son;
+    }
+
+    */
 
 }

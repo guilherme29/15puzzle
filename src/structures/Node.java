@@ -24,11 +24,11 @@ public class Node {
         }
     }
 
-    private int getZeroX() {
+    int getZeroX() {
         return zeroX;
     }
 
-    private int getZeroY() {
+    int getZeroY() {
         return zeroY;
     }
 
@@ -47,7 +47,7 @@ public class Node {
         return copy;
     }
 
-    private Node makeSon(Move move) throws IndexOutOfBoundsException {
+    Node makeSon(Move move) throws IndexOutOfBoundsException {
         Node son = this.makeCopy();
         int[][] sonTable = son.getTable();
         int x = son.getZeroX();
@@ -95,25 +95,37 @@ public class Node {
         LinkedList<Node> l = new LinkedList<>();
         Node upSon, downSon, leftSon, rightSon;
 
-        try{
-            upSon = this.makeSon(Move.UP);
-            l.add(upSon);
-        } catch(IndexOutOfBoundsException e) { }
+        if(this.getLastMove() != Move.DOWN) {
+            try {
+                upSon = this.makeSon(Move.UP);
+                l.add(upSon);
+            }
+            catch (IndexOutOfBoundsException e) {  }
+        }
 
-        try{
-            downSon = this.makeSon(Move.DOWN);
-            l.add(downSon);
-        } catch(IndexOutOfBoundsException e) { }
+        if(this.getLastMove() != Move.UP) {
+            try {
+                downSon = this.makeSon(Move.DOWN);
+                l.add(downSon);
+            }
+            catch (IndexOutOfBoundsException e) {  }
+        }
 
-        try{
-            leftSon = this.makeSon(Move.LEFT);
-            l.add(leftSon);
-        } catch(IndexOutOfBoundsException e) { }
+        if(this.getLastMove() != Move.RIGHT) {
+            try {
+                leftSon = this.makeSon(Move.LEFT);
+                l.add(leftSon);
+            }
+            catch (IndexOutOfBoundsException e) {  }
+        }
 
-        try{
-            rightSon = this.makeSon(Move.RIGHT);
-            l.add(rightSon);
-        } catch(IndexOutOfBoundsException e) { }
+        if(this.getLastMove() != Move.LEFT) {
+            try {
+                rightSon = this.makeSon(Move.RIGHT);
+                l.add(rightSon);
+            }
+            catch (IndexOutOfBoundsException e) {  }
+        }
 
         return l;
     }
@@ -177,7 +189,7 @@ public class Node {
             string.append("\n");
         }
         string.append("PATH: ")
-                .append(this.getDepth())
+                .append(this.getPath())
                 .append("\n").append("DEPTH: ")
                 .append(this.getDepth());
 
@@ -186,7 +198,7 @@ public class Node {
 
     public String pathToString(Node root){ //assumes root is the actual root
         Node node = root.makeCopy();
-        String string = root.toString() + "\n---------\n";
+        StringBuilder string = new StringBuilder(root.toString() + "\n---------\n");
 
         for(int i=0; i<path.length(); i++){
             switch(path.charAt(i)){
@@ -203,8 +215,42 @@ public class Node {
                     node = node.makeSon(Move.RIGHT);
                     break;
             }
-            string += node.toString() + "\n---------\n";
+            string.append(node.toString()).
+                    append("\n---------\n");
         }
-        return string;
+        return string.toString();
     }
+
+    public Move getLastMove(){
+        if(path.length() == 0) return null;
+        int last = path.length() - 1;
+        char l = path.charAt(last);
+        switch(l){
+            case 'U': return Move.UP;
+            case 'D': return Move.DOWN;
+            case 'L': return Move.LEFT;
+            case 'R': return Move.RIGHT;
+        }
+        return null;
+
+
+
+    }
+
+
+    /*
+    int indexScore(int x, int y, Node son){
+
+        for(int i=0; i<Const.ROWS; i++){
+            for(int j=0; j<Const.COLS; j++){
+
+                if(this.table[x][y] == son.table[i][j]){
+                    return Math.abs(x-i) + Math.abs(y-j);
+                }
+
+            }
+        }
+    }
+    */
+
 }
