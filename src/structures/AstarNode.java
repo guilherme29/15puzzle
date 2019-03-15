@@ -1,5 +1,7 @@
 package structures;
 
+import constants.Const;
+
 public class AstarNode extends ScoredNode implements Comparable<AstarNode>{
 
     public AstarNode(int[][] table, int[][] objective) {
@@ -22,20 +24,7 @@ public class AstarNode extends ScoredNode implements Comparable<AstarNode>{
         }
     }
 
-    /*
-    @Override
-    Node makeSon(Move move) throws IndexOutOfBoundsException {
-        AstarNode son = (AstarNode) super.makeSon(move);
-        int[][] thisTable = this.getTable();
-        int zeroX = this.getZeroX();
-        int zeroY = this.getZeroY();
 
 
-
-
-        return son;
-    }
-
-    */
 
 }

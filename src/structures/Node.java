@@ -32,6 +32,22 @@ public class Node {
         return zeroY;
     }
 
+    public void setZeroX(int zeroX) {
+        this.zeroX = zeroX;
+    }
+
+    public void setZeroY(int zeroY) {
+        this.zeroY = zeroY;
+    }
+
+    public void setDepth(int depth) {
+        this.depth = depth;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
     public int getDepth() { return depth; }
 
     public String getPath() {
@@ -58,36 +74,36 @@ public class Node {
                 if(y == 0) throw new IndexOutOfBoundsException();
                 sonTable[y][x] = sonTable[y-1][x];
                 sonTable[y-1][x] = 0;
-                son.zeroY--;
-                son.path = this.path + "U";
+                son.setZeroY(son.getZeroY() - 1);// son.zeroY--;
+                son.setPath(son.getPath() + "U");//son.path = this.path + "U";
                 break;
             }
             case DOWN:{
                 if(y == Const.ROWS-1) throw new IndexOutOfBoundsException();
                 sonTable[y][x] = sonTable[y+1][x];
                 sonTable[y+1][x] = 0;
-                son.zeroY++;
-                son.path = this.path + "D";
+                son.setZeroY(son.getZeroY() + 1);//son.zeroY++;
+                son.setPath(son.getPath() + "D");//son.path = this.path + "D";
                 break;
             }
             case LEFT:{
                 if(x == 0) throw new IndexOutOfBoundsException();
                 sonTable[y][x] = sonTable[y][x-1];
                 sonTable[y][x-1] = 0;
-                son.zeroX--;
-                son.path = this.path + "L";
+                son.setZeroX(son.getZeroX() - 1);//son.zeroX--;
+                son.setPath(son.getPath() + "L");//son.path = this.path + "L";
                 break;
             }
             case RIGHT:{
                 if(x == Const.COLS) throw new IndexOutOfBoundsException();
                 sonTable[y][x] = sonTable[y][x+1];
                 sonTable[y][x+1] = 0;
-                son.zeroX++;
-                son.path = this.path + "R";
+                son.setZeroX(son.getZeroX() + 1);//son.zeroX++;
+                son.setPath(son.getPath() + "R");//son.path = this.path + "R";
                 break;
             }
         }
-        son.depth = this.depth + 1;
+        son.setDepth(son.getDepth() + 1);//son.depth = this.depth + 1;
         return son;
     }
 
@@ -237,20 +253,5 @@ public class Node {
 
     }
 
-
-    /*
-    int indexScore(int x, int y, Node son){
-
-        for(int i=0; i<Const.ROWS; i++){
-            for(int j=0; j<Const.COLS; j++){
-
-                if(this.table[x][y] == son.table[i][j]){
-                    return Math.abs(x-i) + Math.abs(y-j);
-                }
-
-            }
-        }
-    }
-    */
 
 }

@@ -60,4 +60,18 @@ abstract class ScoredNode extends Node {
         return string.toString();
     }
 
+    static int indexScore(int x, int y, int val, int[][] objective){
+        //for a given value in a position returns the score
+
+        for(int i=0; i<Const.ROWS; i++){
+            for(int j=0; j<Const.COLS; j++){
+                if(objective[i][j] == val){
+                    return Math.abs(i - y) + Math.abs(j - x);
+                }
+            }
+        }
+
+        return 0;
+    }
+
 }
