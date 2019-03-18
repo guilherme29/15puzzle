@@ -1,7 +1,5 @@
 package structures;
 
-import constants.Const;
-
 public class AstarNode extends ScoredNode implements Comparable<AstarNode>{
 
     public AstarNode(int[][] table, int[][] objective) {
@@ -23,8 +21,6 @@ public class AstarNode extends ScoredNode implements Comparable<AstarNode>{
             else return 1;
         }
     }
-
-
 
 
 }

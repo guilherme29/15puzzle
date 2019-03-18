@@ -22,4 +22,46 @@ public class GreedyNode extends ScoredNode implements Comparable<GreedyNode>{
         }
     }
 
+    //TODO
+    Node makeAstarSon(Move move, int[][] objective) throws IndexOutOfBoundsException {
+        ScoredNode son = (ScoredNode) this.makeSon(move);
+        int[][] thisTable = this.getTable();
+        int x = this.getZeroX();
+        int y = this.getZeroY();
+        int scoreNewZero, scoreNewVal, scoreOldVal;
+        //it's safe to do this operations since the code above
+        // will have thrown the exception if there's one
+        int scoreOldZero = indexScore(x, y, 0, objective);
+
+        switch(move){
+            case UP:{
+                scoreNewZero = indexScore(x, y + 1, 0, objective);
+                scoreNewVal = indexScore(x, y, thisTable[y+1][x], objective);
+                scoreOldVal = indexScore(x, y + 1, thisTable[y+1][x], objective);
+                break;
+            }
+            case DOWN:{
+                scoreNewZero = indexScore(x, y - 1, 0, objective);
+                scoreNewVal = indexScore(x, y, thisTable[y-1][x], objective);
+                scoreOldVal = indexScore(x, y - 1, thisTable[y-1][x], objective);
+                break;
+            }
+            case LEFT:{
+                scoreNewZero = indexScore(x - 1, y, 0, objective);
+                scoreNewVal = indexScore(x, y, thisTable[y][x-1], objective);
+                scoreOldVal = indexScore(x - 1, y, thisTable[y][x-1], objective);
+                break;
+            }
+            case RIGHT:{
+                scoreNewZero = indexScore(x + 1, y, 0, objective);
+                scoreNewVal = indexScore(x, y, thisTable[y][x+1], objective);
+                scoreOldVal = indexScore(x + 1, y, thisTable[y][x + 1], objective);
+                break;
+            }
+        }
+
+
+        return son;
+    }
+
 }
